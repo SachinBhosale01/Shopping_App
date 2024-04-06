@@ -1,0 +1,17 @@
+ +-------------------+        +---------------------+         +-------------------+          +----------------------+
+ |       User        |        |       Order         |         |      Product      |          |     Coupon           |
+ +-------------------+        +---------------------+         +-------------------+          +----------------------+
+ | - userId: Long    |        | - orderId: Long     |         | - productId: Long |          | - couponId: Long     |
+ | - username: String| 1    * | - orderDate: Date   |   * 1   | - ordered: int    |     1 *  | - couponCode: String |
+ |                   |--------| - quantity: int     |---------| - availableQty:int|----------| - discount: int      |
+ |                   |        | - amount: double    |         | - price: double   |          |                      |
+ +-------------------+        | - paymentId: Long   |         +-------------------+           +---------------------+
+                              | - transactionId: String|
+                              | - description: String  |
+                              | - status: String       |
+                              +-------------------------+
+Explanation:
+
+Each class represents an entity in your system.
+Relationships between entities are depicted with association lines (1 for one-to-many and * for many-to-one).
+Attributes are listed within each class.

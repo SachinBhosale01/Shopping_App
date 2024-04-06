@@ -1,0 +1,19 @@
++-------------+          +-------------+          +-------------+         +--------------+
+|    User     |    1     |   Order     |    *     |   Product   |    1    |    Coupon    |
++-------------+----------+-------------+----------+-------------+---------+--------------+
+| userId      |<>-------o| orderId     |<>------o| productId   |<------->| couponId     |
+| username    |          | orderDate   |          | ordered     |         | couponCode   |
+|             |          | quantity    |          | availableQty|         | discount     |
+|             |          | amount      |          | price       |         |              |
++-------------+          | paymentId   |          +-------------+         +--------------+
+                         | transactionId|
+                         | description |
+                         | status      |
+                         +-------------+
+
+ Explanation:
+
+Each User can have multiple Orders (1 to * relationship).
+Each Order corresponds to one Product, but a Product can be associated with multiple Orders (1 to * relationship).
+Each Coupon can be applied to multiple Orders, but an Order can have only one Coupon (1 to * relationship).
+Payment details are associated with each Order.
