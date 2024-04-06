@@ -1,0 +1,87 @@
+1. GET {{url}}/inventory
+Test Response:
+[
+    {
+        "productId": 101,
+        "ordered": 10,
+        "availableQuantity": 90,
+        "price": 100.0
+    }
+]
+
+
+2. GET {{url}}/fetchCoupons
+Test Response:
+{
+    "OFF5": 5,
+    "OFF10": 10
+}
+
+3. POST {{url}}/{userId}/order?qty=10&coupon="OFF5"
+Test Response:
+localhost:8080/1/order?qty=20&coupon="OFF5"
+[
+    {
+        "productId": 101,
+        "ordered": 10,
+        "availableQuantity": 90,
+        "price": 100.0
+    }
+]
+
+
+localhost:8080/2/order?qty=20&coupon="OFF5"
+{
+    "orderId": 202,
+    "uderId": 2,
+    "quantity": 20,
+    "amount": 1900.0,
+    "coupon": "OFF10"
+}
+
+localhost:8080/2/order?qty=200&coupon="OFF5"
+Invalid quantity
+
+
+4. POST {{url}}/{userId}/{orderId}/pay?amount=950
+//Mock the payment API to randomly return any of the following status codes
+Test Response:
+This is mock payment 
+localhost:8080/1/201/pay?amount=950
+{
+    "userId": 1,
+    "orderId": 201,
+    "transactionId": "tran01010000128",
+    "status": "successful",
+    "description": null
+}
+
+
+5. GET {{url}}/{userId}/orders
+Test Response:
+localhost:8080/1/orders
+[
+    {
+        "orderId": 201,
+        "amount": 950.0,
+        "date": null,
+        "coupon": "OFF5"
+    }
+]
+
+6. Get {{url}}/{userId}/orders/{orderId}
+Test Response:
+localhost:8080/1/orders/201
+[
+    [
+        {
+            "orderId": 201,
+            "amount": 950.0,
+            "date": null,
+            "coupon": "OFF5",
+            "transactionId": "tran010100001",
+            "status": "Successful ",
+            "description": "Payment Done"
+        }
+    ]
+]
