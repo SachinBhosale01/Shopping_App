@@ -24,6 +24,7 @@ INSERT INTO `shopping_web_app2`.`coupon` (`discount`, `coupon_id`, `coupon_code`
 Order:
 INSERT INTO `shopping_web_app2`.`orders` (`amount`, `quantity`, `coupon_id`, `order_date`, `order_id`, `product_id`, `user_id`) VALUES ('950', '10', '5', '2024-02-03', '201', '101', '1');
 INSERT INTO `shopping_web_app2`.`orders` (`amount`, `quantity`, `coupon_id`, `order_date`, `order_id`, `product_id`, `user_id`) VALUES ('1900', '20', '10', '2024-02-04', '202', '101', '2');
+inser payment id manually for checking.
 
 Payment:
 INSERT INTO `shopping_web_app2`.`payment` (`order_id`, `payment_id`, `product_id`, `user_id`, `description`, `status`, `transaction_id`) VALUES ('201', '301', '101', '1', 'Payment Done', 'Successful ', 'tran010100001');
