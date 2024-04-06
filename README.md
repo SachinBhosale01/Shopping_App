@@ -1,3 +1,7 @@
+For ER and class diagram check the Folder or ER diagram
+
+
+
 We Have Some Assumptions about About Database
 You need to Insert data Manually for frist time 
 
